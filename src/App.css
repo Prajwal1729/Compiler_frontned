@@ -1,0 +1,259 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* for login page and signup page */
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.login-page {
+  height: 100vh;
+  display: flex;              /* changed */
+  align-items: center;        /* changed */
+  justify-content: space-around; /* changed */
+  background: linear-gradient(135deg, #3b3b98, #2c2c54);
+  padding: 20px;              /* added */
+}
+
+/* .left-section {
+  flex: 1;
+  text-align: center;
+  color: white;
+} */
+
+.title {
+  font-size: 36px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.left-section img {
+  width: 80%;
+  max-width: 500px;
+  border-radius: 10%;
+}
+
+/* .home-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 8px 14px;
+  border-radius: 20px;
+  border: none;
+  background: #2f3640;
+  color: white;
+  cursor: pointer;
+} */
+
+.login-card {
+  width: 350px;
+  padding: 30px;
+  border-radius: 12px;
+  background: rgba(20, 20, 30, 0.9);
+  color: white;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.login-card h2 {
+  margin-bottom: 5px;
+}
+
+.login-card p {
+  font-size: 12px;
+  color: #aaa;
+}
+
+.input-group {
+  text-align: left;
+  margin-top: 15px;
+}
+
+.input-group label {
+  font-size: 12px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  background: #2f3640;
+  color: white;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.forgot {
+  cursor: pointer;
+  color: #6c5ce7;
+}
+
+.login-btn {
+  width: 100%;
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  background: #6c5ce7;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.divider {
+  height: 1px;
+  background: #444;
+  margin: 20px 0;
+}
+
+.social-btn {
+  width: 100%;
+  margin: 8px 0;
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid #555;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+}
+
+.signup-text {
+  font-size: 12px;
+  margin-top: 15px;
+}
+
+.signup-text span {
+  color: #6c5ce7;
+  cursor: pointer;
+}
+
+img{
+  width: 150px;
+  margin-bottom: 20px;
+}
+
+/* login and signup css end */
+
+/* dashboard page css start */
+
+.dashboard {
+  height: 100vh;
+  background: #0f1117;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: #1a1c23;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+}
+
+.controls select {
+  padding: 5px 10px;
+  border-radius: 6px;
+}
+
+.controls button {
+  background: #facc15;
+  border: none;
+  padding: 6px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* MAIN */
+.main {
+  display: flex;
+  flex: 1;
+}
+
+/* LEFT EDITOR */
+.editor {
+  flex: 2;
+  background: #0f1117;
+  color: #d1d5db;
+  padding: 15px;
+  border: none;
+  outline: none;
+  font-family: monospace;
+}
+
+/* RIGHT PANEL */
+.right-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-box,
+.output-box {
+  flex: 1;
+  background: #0f1117;
+  color: #d1d5db;
+  padding: 10px;
+  border: none;
+  outline: none;
+  border-left: 1px solid #333;
+}
+
+.output-box {
+  border-top: 1px solid #333;
+}
+
+/* dashbaord page css end */

@@ -1,0 +1,7 @@
+.env
+node_modules/
+public/
+logo.svg
+package-lock.json
+package.json
+README.md
