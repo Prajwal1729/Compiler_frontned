@@ -40,7 +40,7 @@ export default function Dashboard(){
         try {
             const result = await runCode(code, language);
             console.log("Code execution result:", result);
-            setOutput(result);
+            setOutput(result.output);
         } catch (error) {
             console.error("Error running code:", error);
         }

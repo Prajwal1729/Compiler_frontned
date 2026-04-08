@@ -1,8 +1,8 @@
 import api from './api';
 
-export const runCode = async(code,input,language)=>{
+export const runCode = async(code,language)=>{
     try{
-        const response = await api.post('/auth/run/',{code,input,language});
+        const response = await api.post('/auth/run/',{code,language});
         console.log(response);
         return response.data;
     }catch(error){
