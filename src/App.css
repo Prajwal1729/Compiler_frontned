@@ -241,7 +241,7 @@ img{
   flex-direction: column;
 }
 
-.input-box,
+/* .input-box, */
 .output-box {
   flex: 1;
   background: #0f1117;
