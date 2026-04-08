@@ -10,18 +10,29 @@ export default function Dashboard(){
     const [languages, setLanguages] = React.useState([]); // list
     const [language, setLanguage] = React.useState("");   // selected
     const options = languages.map(lang=>({
-        value:lang,
-        label:lang
-    }))
+        value:lang.name,
+        label:lang.name,
+        template:lang.template
+    }));
+    const [selectedOption, setSelectedOption] = React.useState(null);
     
     React.useEffect(()=>{
         const fetchLanguages = async ()=>{
            const data = await Languages();
-           console.log("Supported languages:",data);
+           // console.log("Supported languages:",data);
            setLanguages(data.languages);
-           setLanguage(data.languages[0]);
-           return data;
-        }
+           const defaultLanguages = data.languages[0];
+
+           const defaultOption = {
+                value: defaultLanguages.name,
+                label: defaultLanguages.name,
+                template: defaultLanguages.template,
+            };
+
+            setSelectedOption(defaultOption);
+            setLanguage(defaultLanguages.name);
+            setCode(defaultLanguages.template);
+        };
         fetchLanguages();
     },[]);
 
@@ -49,26 +60,37 @@ export default function Dashboard(){
                         </option>
                      ))}
                   </select> */}
-                  <Select
-                    options={options}
-                    onChange={(opt) => setLanguage(opt.value)}
-                    styles={{
-                        control: (base) => ({
-                        ...base,
-                        backgroundColor: "#1a1c23",
-                        color: "white",
-                        }),
-                        menu: (base) => ({
-                        ...base,
-                        backgroundColor: "#1a1c23",
-                        }),
-                        option: (base, state) => ({
-                        ...base,
-                        backgroundColor: state.isFocused ? "#333" : "#1a1c23",
-                        color: "white",
-                        }),
-                    }}
-                    />
+                 <Select
+                options={options}
+                value={selectedOption}
+                onChange={(opt) => {
+                    setSelectedOption(opt);
+                    setLanguage(opt.value);
+                    setCode(opt.template); 
+                }}
+                styles={{
+                    control: (base) => ({
+                    ...base,
+                    backgroundColor: "#1a1c23",
+                    color: "white",
+                    border: "1px solid #333",
+                    }),
+                    singleValue: (base) => ({
+                    ...base,
+                    color: "white", 
+                    }),
+                    menu: (base) => ({
+                    ...base,
+                    backgroundColor: "#1a1c23",
+                    }),
+                    option: (base, state) => ({
+                    ...base,
+                    backgroundColor: state.isFocused ? "#333" : "#1a1c23",
+                    color: "white",
+                    cursor: "pointer",
+                    }),
+                }}
+                />
 
                 <button onClick={handleRun}>▶ Run</button>
                 </div>
