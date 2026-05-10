@@ -12,27 +12,35 @@ export default function Login(){
   const [successMessage, setSuccessMessage] = React.useState("");
   const [errorMessage, setErrorMessage] = React.useState("");
 
-  const handleLogin = async () => {
-      try{
+ const handleLogin = async () => {
+
+    try {
+
+        setErrorMessage("");
+        setSuccessMessage("");
+
         const data = await authLogin(email, password);
-        console.log(data);
-        
+        console.log(data,"response from login api");
+
         if (data.success) {
-            sessionStorage.setItem("token", data.access)
+            sessionStorage.setItem("token", data.access);
             setSuccessMessage(data.message);
-            setTimeout(()=>{
-              navigate('/dashboard');
-            },2000);
             setErrorMessage("");
+            setTimeout(() => {
+                navigate('/dashboard');
+            }, 2000);
         } else {
             setErrorMessage(data.message);
             setSuccessMessage("");
         }
 
-      }catch(error){
+    } catch(error) {
         console.error("Login failed:", error);
-     }
-  };
+        setErrorMessage(
+            error?.response?.data?.message || "Login failed"
+        );
+    }
+};
   
   return (
     <div className="login-page">

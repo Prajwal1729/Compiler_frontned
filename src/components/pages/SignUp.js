@@ -14,26 +14,40 @@ export default function SignUp(){
 
   const handleSignUp = async () => {
     try {
+
+        setErrorMessage("");
+        setSuccessMessage("");
+
         if (password !== confirmPassword) {
             setErrorMessage("Passwords do not match!");
             return;
         }
 
+        if (!email || !password) {
+            setErrorMessage("Email and password are required!");
+            return;
+        }
+
         const data = await authSignUp(email, password);
-        console.log(data);
+        console.log(data, "response from signup api");
 
         if (data.success) {
             setSuccessMessage(data.message);
-            setErrorMessage("")
-            navigate("/login");
+            setErrorMessage("");
+            setTimeout(() => {
+                navigate("/login");
+            }, 2000);
+
         } else {
             setErrorMessage(data.message);
             setSuccessMessage("");
         }
 
     } catch (error) {
-        setErrorMessage("Signup failed");
         console.error(error);
+        setErrorMessage(
+            error?.response?.data?.message || "Signup failed"
+        );
     }
 };
   
