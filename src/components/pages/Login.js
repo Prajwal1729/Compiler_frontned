@@ -20,7 +20,7 @@ export default function Login(){
         setSuccessMessage("");
 
         const data = await authLogin(email, password);
-        console.log(data,"response from login api");
+        // console.log(data,"response from login api");
 
         if (data.success) {
             sessionStorage.setItem("token", data.access);

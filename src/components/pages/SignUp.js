@@ -29,7 +29,7 @@ export default function SignUp(){
         }
 
         const data = await authSignUp(email, password);
-        console.log(data, "response from signup api");
+        // console.log(data, "response from signup api");
 
         if (data.success) {
             setSuccessMessage(data.message);
